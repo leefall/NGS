@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 import glob
 import os
-#dFinal=set()
 dTargetTCGA=dict()
 dNotanalysis=dict()
 sSetwhat=set()
