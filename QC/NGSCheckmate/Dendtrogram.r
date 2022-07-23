@@ -1,0 +1,11 @@
+output_corr_matrix <- read.delim("/mnt/towel/leefall2/GustaveNGSCheck_NonTNBC/LowQual_corr_matrix.txt")
+data = output_corr_matrix
+d3 <- as.dist((1 - data[,-1]))
+clust3 <- hclust(d3, method = "average")
+pdf("/mnt/towel/leefall2/Figure/Final/Dendrogram_mBRCA.pdf", width=14,height=9)
+#op = par(bg = "gray85")
+par(plt=c(0.1, 0.95, 0.2, 0.9))
+plot(clust3, lwd = 2, lty = 1,cex=0.8, xlab="Samples", sub = "",  ylab="Distance (1-Pearson correlation)",hang = -1, axes = FALSE,main="mBRCA of Gustave Roussy")
+axis(side = 2, at = seq(0, 1, 0.2), labels = FALSE, lwd = 2)
+mtext(seq(0, 1, 0.2), side = 2, at = seq(0, 1, 0.2), line = 1,   las = 2)
+dev.off()
